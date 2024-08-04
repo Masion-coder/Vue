@@ -10,22 +10,21 @@
 <script>
 export default {
     name: 'Person',
-    setup() {
-        // 数据，不是响应式数据
-        let name = 'Masion'
-        let age = 18
-        let tel = '12345678'
+}
+</script>
 
-        // 不能用this
-        function changeAge() {
+<script setup>
+// 数据，不是响应式数据
+let name = 'Masion'
+let age = 18
+let tel = '12345678'
 
-        }
+// 不能用this
+function changeAge() {
 
-        function showTel() {
-            alert(tel)
-        }
+}
 
-        return { name, age, changeAge, showTel }
-    }
+function showTel() {
+    alert(tel)
 }
 </script>
