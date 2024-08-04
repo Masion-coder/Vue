@@ -14,14 +14,16 @@ export default {
 </script>
 
 <script setup>
+import {ref} from 'vue'
 // 数据，不是响应式数据
 let name = 'Masion'
-let age = 18
+let age = ref(18)
 let tel = '12345678'
 
 // 不能用this
 function changeAge() {
-
+    console.log(age)
+    age.value++
 }
 
 function showTel() {
