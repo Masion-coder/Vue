@@ -16,6 +16,7 @@ export default {
         let age = 18
         let tel = '12345678'
 
+        // 不能用this
         function changeAge() {
 
         }
