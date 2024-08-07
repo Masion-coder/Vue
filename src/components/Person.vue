@@ -1,9 +1,9 @@
 <template>
     <div class="person">
-        <h1>姓名:{{ name }}</h1>
-        <h1>年龄:{{ age }}</h1>
-        <button @click="changeAge">修改年龄</button>
-        <button @click="showTel">查看联系方式</button>
+        性：<input type="text" v-model="firstName"> <br>
+        名：<input type="text" v-model="lastName"> <br>
+        全名：<span>{{ fullName }}</span> <br>
+        <button @click="changeFullName">修改全称</button>
     </div>
 </template>
 
@@ -14,19 +14,27 @@ export default {
 </script>
 
 <script setup>
-import {ref} from 'vue'
-// 数据，不是响应式数据
-let name = 'Masion'
-let age = ref(18)
-let tel = '12345678'
+import { ref, computed } from 'vue'
 
-// 不能用this
-function changeAge() {
-    console.log(age)
-    age.value++
-}
+let firstName = ref('张')
+let lastName = ref('三')
 
-function showTel() {
-    alert(tel)
+// // 计算属性，只读，不能改
+// let fullName = computed(() => { return firstName.value + '-' + lastName.value })
+
+
+let fullName = computed({
+    get() {
+        return firstName.value + '-' + lastName.value
+    },
+    set(val) {
+        const [na1,na2] = val.split('-')
+        firstName.value = na1
+        lastName.value = na2
+    }
+})
+
+function changeFullName() {
+    fullName.value = 'li-si'
 }
 </script>
