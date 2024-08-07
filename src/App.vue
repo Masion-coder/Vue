@@ -1,15 +1,14 @@
 <template>
-    <Person/>
-    <h1>1234</h1>
+    <Car/>
 </template>
 
 <script>
-    import Person from './components/Person.vue';
+    import Car from './components/Car.vue';
 
 
     export default {
         name:'App',
-        components:{Person}
+        components:{Car}
     }
 </script>
 
