@@ -27,4 +27,11 @@ function changePrice() {
 function changeFirstPrice() {
     cars[0].price += 10;
 }
+
+function changeCar() {
+    // 页面引用不随变量引用变化，故不生效
+    // car = { brand: '三菱', price: 90 }
+    // car = reactive({ brand: '三菱', price: 90 })
+    Object.assign(car,{ brand: '三菱', price: 90 })
+}
 </script>
