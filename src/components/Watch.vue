@@ -1,7 +1,10 @@
 <template>
     <div>
-        <h1>计数器:{{ counter }}</h1>
-        <buttion @click="changeCounter">点我+1</buttion>
+        <h1>姓名：{{ person.name }}</h1>
+        <h1>年龄：{{ person.age }}</h1>
+        <buttion @click="changeName">修改名字</buttion> <br>
+        <buttion @click="changeAge">修改年龄</buttion> <br>
+        <buttion @click="changePerson">修改人</buttion>
     </div>
 </template>
 
@@ -14,12 +17,22 @@ export default {
 <script setup>
 import { ref, watch } from 'vue'
 
-let counter = ref(0)
+let person = ref ({name:'张三',age:18})
 
-function changeCounter() {
-    counter.value++
+function changeName() {
+    person.value.name += '~'
 }
 
-// 监视,监视值+函数
-const stop = watch(counter, (newValue, oldValue) => { console.log('counter变化了', newValue, oldValue);if(newValue >= 18) stop() })
+function changeAge() {
+    person.value.age++
+}
+
+function changePerson() {
+    person.value = {name:'李四',age:40}
+}
+// // 监视对象类型，监视对象地址
+// watch(person,(newValue,oldValue)=>{console.log('person改变了',newValue,oldValue)})
+
+watch(person,(newValue,oldValue)=>{console.log('person改变了',newValue,oldValue)},{deep:true})
+
 </script>
