@@ -3,11 +3,11 @@
         <h1>姓名：{{ person.name }}</h1>
         <h1>年龄：{{ person.age }}</h1>
         <h1>汽车：{{ person.car.c1 }}, {{ person.car.c2 }}</h1>
-        <buttion @click="changeName">修改名字</buttion> <br>
-        <buttion @click="changeAge">修改年龄</buttion> <br>
-        <buttion @click="changeC1">修改汽车1</buttion> <br>
-        <buttion @click="changeC2">修改汽车2</buttion> <br>
-        <buttion @click="changeCar">修改汽车</buttion>
+        <button @click="changeName">修改名字</button> <br>
+        <button @click="changeAge">修改年龄</button> <br>
+        <button @click="changeC1">修改汽车1</button> <br>
+        <button @click="changeC2">修改汽车2</button> <br>
+        <button @click="changeCar">修改汽车</button>
     </div>
 </template>
 
