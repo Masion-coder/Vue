@@ -15,24 +15,24 @@ export default {
 </script>
 
 <script setup>
-import { ref, watch } from 'vue'
+import { reactive, watch } from 'vue'
 
-let person = ref ({name:'张三',age:18})
+let person = reactive({ name: '张三', age: 18 })
 
 function changeName() {
-    person.value.name += '~'
+    person.name += '~'
 }
 
 function changeAge() {
-    person.value.age++
+    person.age++
 }
 
 function changePerson() {
-    person.value = {name:'李四',age:40}
+    Object.assign(person, { name: '李四', age: 40 })
 }
 // // 监视对象类型，监视对象地址
 // watch(person,(newValue,oldValue)=>{console.log('person改变了',newValue,oldValue)})
 
-watch(person,(newValue,oldValue)=>{console.log('person改变了',newValue,oldValue)},{deep:true})
-
+// reactive默认开启深层监视
+watch(person, (newValue, oldValue) => { console.log('person改变了', newValue, oldValue) })
 </script>
