@@ -43,13 +43,7 @@ function changeCar() {
     person.car = {c1: '奔驰', c2: '宝马'}
 }
 
-// 监视响应式对象中的某个属性，且该属性是基本类型，要用getter函数式
-watch(()=>{return person.name}, (newValue, oldValue)=>{console.log('person.name变化了', newValue, oldValue)})
-// car地址变化不能监视
-watch(person.car, (newValue, oldValue)=>{console.log('person.car变化了（内容）',newValue, oldValue)})
-// car属性变化不能监视
-watch(()=>person.car, (newValue, oldValue)=>{console.log('person.car变化了（地址）',newValue, oldValue)})
 
-watch(()=>person.car, (newValue, oldValue)=>{console.log('person.car变化了',newValue, oldValue)}, {deep: true})
+watch(()=>[person.name, person.car.c1], (newValue, oldValue)=>{console.log('person变化了',newValue, oldValue)})
 
 </script>
