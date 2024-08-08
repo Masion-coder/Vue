@@ -1,23 +1,20 @@
 <template>
-    <div class="person">
-        <h1 ref="title">123456</h1>
-        <button @click="show">aaa</button>
+    <div>
     </div>
 </template>
 
-<script>
+<script lang="ts">
 export default {
     name: 'Person',
 }
 </script>
 
-<script setup>
-import { ref } from 'vue'
+<script lang="ts" setup>
+import { PersonInter, PersonList } from '@/types'
 
-let title = ref()
+let person: PersonInter = { id: '11', name: '11', age: 1 }
 
-function show() {
-    console.log(title.value)
-}
-
+// let personList: Array<PersonInter> = [{ id: '11', name: '11', age: 1 }]
+// let personList: PersonList = [{ id: '111', name: '11', age: 1 }]
+let personList: PersonInter[] = [{ id: '111', name: '11', age: 1 }]
 </script>
