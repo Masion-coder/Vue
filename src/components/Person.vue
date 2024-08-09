@@ -1,5 +1,6 @@
 <template>
     <div>
+        <li v-for="person in list" :key="person.id">{{ person.name }}--{{ person.age }}</li>
     </div>
 </template>
 
@@ -10,11 +11,15 @@ export default {
 </script>
 
 <script lang="ts" setup>
-import { PersonInter, PersonList } from '@/types'
+import { PersonInter } from '@/types';
 
-let person: PersonInter = { id: '11', name: '11', age: 1 }
+// // 接收
+// defineProps(['list'])
 
-// let personList: Array<PersonInter> = [{ id: '11', name: '11', age: 1 }]
-// let personList: PersonList = [{ id: '111', name: '11', age: 1 }]
-let personList: PersonInter[] = [{ id: '111', name: '11', age: 1 }]
+// // 接收+限制类型
+// defineProps<{list: PersonInter[]}>()
+
+// 接收+限制类型+限制必要性+指定默认值
+let x = withDefaults(defineProps<{list: PersonInter[],tmp?:string}>(),
+{list:()=>[{id: '123', name: '张三', age: 10}]})
 </script>
